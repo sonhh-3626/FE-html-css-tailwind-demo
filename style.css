@@ -1,0 +1,136 @@
+:root {
+  --color-overlay-dark: rgba(0, 0, 0, 0.7);
+  --color-primary: #C01111;
+  --gradient-overlay: linear-gradient(135deg, rgba(192, 17, 17, 0.9), var(--color-overlay-dark));
+  --shadow-hover: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* nav */
+.nav-link {
+  position: relative;
+  padding: 15px 0 5px;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 5px;
+  background-color: var(--color-primary);
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* hero */
+.hero-video {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+}
+
+/* layout */
+.main-content  {
+  margin: 0 15%;
+}
+
+/* business card */
+.business-card {
+  transition: all 0.3s ease;
+}
+
+.business-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-hover);
+}
+
+/* project slider */
+.project-slider {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+}
+
+.project-card {
+  min-width: 320px;
+  scroll-snap-align: start;
+  opacity: 0;
+  transform: translateX(100px);
+  transition: all 0.5s ease-in-out;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.project-card img {
+  transition: transform 0.3s ease;
+  flex: 1 0 100%;
+  object-fit: cover;
+}
+
+.project-slider-container {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.project-card.active {
+  opacity: 1;
+  transform: translateX(0);
+  position: relative;
+}
+
+.project-card.prev {
+  opacity: 0;
+  transform: translateX(-100px);
+}
+
+/* news */
+.news-slider {
+  display: flex;
+  overflow-x: auto;
+}
+
+.news-card {
+  min-width: 300px;
+}
+
+/* gradient */
+.gradient-overlay {
+  background: var(--gradient-overlay);
+}
+
+/* text */
+.text-primary {
+  color: var(--color-primary);
+}
+
+.counter {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+/* footer */
+.footer-container {
+  margin: 0 15%;
+}
+
+/* responsive */
+@media (max-width: 768px) {
+  .hero-video {
+    height: 50vh;
+  }
+
+  .counter {
+    font-size: 2rem;
+  }
+}
